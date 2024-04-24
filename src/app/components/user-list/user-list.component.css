@@ -1,0 +1,34 @@
+table {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+section{
+  margin: 1rem 0;
+  padding: 0 1rem;
+  margin: 2rem;
+}
+
+ng-container td {
+  margin: 0.5rem 0;
+}
+table tr {
+  cursor: pointer;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+.mat-elevation-z8{
+  margin-bottom: 2rem;
+}
+

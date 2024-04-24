@@ -1,0 +1,13 @@
+<section *ngIf="userDetails" class="center">
+  <h2>User Details</h2>
+  <div>
+    <img [src]="userDetails.avatar" alt="Avatar">
+    <p><strong>ID:</strong> {{ userDetails.id }}</p>
+    <p><strong>Name:</strong> {{ userDetails.first_name }} {{ userDetails.last_name }}</p>
+    <p><strong>Email:</strong> {{ userDetails.email }}</p>
+  </div>
+  <div class="example-button-row" routerLink="">
+  <button mat-stroked-button>Back</button>
+  </div>
+</section>
+
