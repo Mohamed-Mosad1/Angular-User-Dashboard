@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,10 +10,10 @@ import { UsersService } from 'src/app/core/services/users.service';
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent implements AfterViewInit {
+export class UserListComponent implements OnInit {
   displayedColumns: string[] = ['avatar', 'id', 'firstName', 'lastName'];
 
-  usersData: any = {};
+  usersData: any[] = [];
   currentPageIndex: number = 1;
   previousPageIndex: number = 0;
   usersPerPage: number = 0;
@@ -21,14 +21,14 @@ export class UserListComponent implements AfterViewInit {
   pageInfo: ApiResponse = {} as ApiResponse;
   searchValue: string = '';
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
+  // @ViewChild(MatPaginator) paginator!: MatPaginator;
+  // @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private _UsersService: UsersService) {
-    this.usersData = new MatTableDataSource<User>();
+    // this.usersData = new MatTableDataSource<User>();
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
     this.fetchData(this.currentPageIndex);
   }
 
@@ -36,8 +36,8 @@ export class UserListComponent implements AfterViewInit {
     this._UsersService.getUsers(pageIndex).subscribe({
       next: (response) => {
         this.usersData = response.data;
-        this.usersData.sort = this.sort;
-        this.usersData.paginator = this.paginator;
+        // this.usersData.sort = this.sort;
+        // this.usersData.paginator = this.paginator;
         this.totalUsers = response.total;
         this.usersPerPage = response.per_page;
         this.pageInfo = response;
@@ -53,14 +53,5 @@ export class UserListComponent implements AfterViewInit {
     this.fetchData(this.currentPageIndex);
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value
-      .trim()
-      .toLowerCase();
-    this.usersData.filter = filterValue;
 
-    if (this.usersData.paginator) {
-      this.usersData.paginator.firstPage();
-    }
-  }
 }

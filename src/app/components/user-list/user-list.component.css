@@ -1,26 +1,16 @@
-table {
-  width: 100%;
-}
-
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
 }
-
-td, th {
-  width: 25%;
-}
 section{
-  margin: 1rem 0;
   padding: 0 1rem;
-  margin: 2rem;
+  margin: 1rem;
 }
-
-ng-container td {
-  margin: 0.5rem 0;
-}
-table tr {
-  cursor: pointer;
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 .center{
   display: flex;
@@ -28,7 +18,40 @@ table tr {
   align-items: center;
   padding: 1rem;
 }
-.mat-elevation-z8{
-  margin-bottom: 2rem;
+
+.example-card {
+  width: 18rem;
+  display: flex;
+  margin: 1rem;
 }
+.example-card .pointer {
+  cursor: pointer;
+}
+.example-card img{
+  width: 100%;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.text-center{
+  text-align: center;
+  margin: 4rem 0;
+}
+
+
+@media (max-width: 600px) {
+  .example-card {
+    max-width: 100%;
+  }
+  pagination-controls{
+    font-size: smaller;
+  }
+  .center{
+    padding: 0.5rem;
+
+  }
+}
+
 

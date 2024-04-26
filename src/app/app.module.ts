@@ -20,6 +20,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { LoadingScreenInterceptor } from './core/interceptors/loading-screen.interceptor';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from './core/pipe/search.pipe';
+import {MatCardModule} from '@angular/material/card';
+import { NotFoundPageComponent } from './components/not-found-page/not-found-page.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { SearchPipe } from './core/pipe/search.pipe';
     HeaderComponent,
     UserListComponent,
     UserDetailsComponent,
-    SearchPipe,
+    NotFoundPageComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { SearchPipe } from './core/pipe/search.pipe';
     MatPaginatorModule,
     FormsModule,
     NgxSpinnerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatCardModule
 
   ],
   providers: [
